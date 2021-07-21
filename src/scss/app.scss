@@ -48,6 +48,7 @@
   --dark-bg:#141625/* hsla(231, 30%, 11%, 1) */;
   --primary-purple:hsla(252, 94%, 67%, 1);
   --secondary-purple:hsla(252, 100%, 73%, 1);
+  --primary-gray:#373B53;
   --dark-1:hsla(233, 31%, 17%, 1);
   --dark-2:hsla(233, 30%, 21%, 1);
   --dark-3:hsla(231, 28%, 7%, 1);
@@ -62,7 +63,6 @@
 body{
   font-weight:500;
   background: var(--light-bg);
-  //background: var(--dark-red);
   font-family: 'Spartan',sans-serif;
 }
 
@@ -70,11 +70,12 @@ h1,h2,h3{
   font-weight: bold;
 }
 
-h1{
-  font-size: 32px;
-  line-height: 36px;
-  letter-spacing: -1px;
+.h1{
+  font-size: 20px;
+  line-height: 22.4px;
+  letter-spacing: -.63px;
 }
+
 h2{
   font-size: 20px;
   line-height: 22px;
@@ -93,6 +94,10 @@ h2{
   color:var(--gray-2);
 }
 
+.h3--light{
+  font-weight: 500;
+}
+
 .body--font-style-1{
   font-size: 12px;
   line-height: 15px;
@@ -104,14 +109,25 @@ h2{
   letter-spacing: -.23px;
 }
 
-.btn{
-  height:48px;
+.custom-fs{
+  font-size: 2rem;
+}
+
+.btn-custom{
+  height:41px;
   border-radius: 24px;
 }
 
+.btn-add{
+  height:32px !important;
+  width:32px;
+}
+
 .btn1{
-  @extend .btn;
-  width:150px;
+  @extend .btn-custom;
+  width:90px;
+  height:44px;
+  font-size:.75rem;
  
   background-color:var(--primary-purple);
   :hover{
@@ -120,7 +136,7 @@ h2{
 }
 
 .btn2{
-  @extend .btn;
+  @extend .btn-custom;
   width:131px;
   background-color:var(--primary-purple);
   :hover{
@@ -128,7 +144,7 @@ h2{
   }
 }
 .btn3{
-  @extend .btn;
+  @extend .btn-custom;
   width:73px;
   &--dark{
     @extend .btn3;
@@ -148,7 +164,7 @@ h2{
 }
 
 .btn4{
-  @extend .btn;
+  @extend .btn-custom;
   width:133px;
   &--dark{
     @extend .btn4;
@@ -168,7 +184,7 @@ h2{
 }
 
 .btn5{
-  @extend .btn;
+  @extend .btn-custom;
   width:89px;
   background-color: var(--dark-red);
   :hover{
@@ -177,7 +193,7 @@ h2{
 }
 
 .btn6{
-  @extend .btn;
+  @extend .btn-custom;
   width:350px;
   background-color:hsla(231, 67%, 99%, 1);
   :hover{
@@ -192,4 +208,27 @@ h2{
   background-color:var(--dark-bg);
 }
 
+.custom-container{
+  max-width:1440px;
+  height:800px;
+}
+
+
 //font-family: 'Spartan', sans-serif;
+@media only screen and (min-width: 768px) {
+  .h1{
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: -1px;
+  }
+
+  .btn{
+    height:48px;
+  }
+
+  .btn1{
+    width:150px;
+  }
+}
+
+
