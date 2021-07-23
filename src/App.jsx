@@ -17,14 +17,28 @@ import {
 const App = () => {
 
   const [data, setData] = useState([]);
+  const [details,setDetails] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       setData(await fetch('http://localhost:3000/src/data/data.json').then(res => res.json()));
+
     };
 
     fetchData();
+
+
   }, [])
+
+  const handleDetails = data => {
+    console.log(data);
+    setDetails(data);
+  }
+
+  /* const handleDetailsChange = data => {
+    console.log(data);
+    setDetails(data);
+  } */
 
   return (
     <Container fluid className="custom-container px-0">
@@ -33,7 +47,7 @@ const App = () => {
           <SideBar />
         </Col>
         <Col>
-          <Row className="gx-0 justify-content-center" style={{paddingLeft:24,paddingRight:24}}>
+          <Row className="gx-0 justify-content-center" style={{ paddingLeft: 24, paddingRight: 24 }}>
 
             <Router>
               <Row className="gx-0 justify-content-center">
@@ -42,19 +56,19 @@ const App = () => {
                   <Route exact path="/">
                     <InvoiceHeader data={data} />
                   </Route>
-                  <Route exact path="/invoice/:invoiceId" component={InvoiceDetailHeader} />
-                    
-                  
+                  <Route exact path="/invoice/:invoiceId" children={<InvoiceDetailHeader data={details}/>} />
+
+
                 </Switch>
               </Row>
               <Row className="gx-0 justify-content-center">
                 <Switch>
                   <Route exact path="/">
-                    <InvoiceList data={data} />
+                    <InvoiceList data={data} handler={handleDetails} />
                   </Route>
-                  <Route exact path="/invoice/:invoiceId" component={InvoiceDetailBody}/>
-                    
-                  
+                  <Route exact path="/invoice/:invoiceId" children={<InvoiceDetailBody data={details}/>} />
+
+
 
                 </Switch>
               </Row>

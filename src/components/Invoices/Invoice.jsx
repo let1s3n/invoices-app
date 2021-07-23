@@ -5,10 +5,13 @@ import { MdKeyboardArrowRight } from "react-icons/md"
 import {
   Link
 } from "react-router-dom";
+import arrowRight from '../../assets/icon-arrow-right.svg'
 
-const Invoice = ({ id, client, paymentDue, total }) => {
+const Invoice = ({ id, client, paymentDue, total,handler }) => {
   
-
+const handleClick = () => {
+  handler({id,client,paymentDue,total});
+}
   return (
     <Row className="invoice mb-3 gx-0 align-items-center justify-content-around">
       <Col className="text-center">
@@ -25,7 +28,8 @@ const Invoice = ({ id, client, paymentDue, total }) => {
       </Col>
       <Col className="text-center">
         <Button>asdasd</Button>
-        <Link to={`/invoice/${id}`}><MdKeyboardArrowRight style={{ cursor: "pointer" }}/></Link>
+        {/* <Link to={`/invoice/${id}`}><MdKeyboardArrowRight style={{ cursor: "pointer" }}/></Link> */}
+        <Link to={`/invoice/${id}`} onClick={handleClick}><img src={arrowRight} alt="arrow right icon" /></Link>
       </Col>
     </Row>
 

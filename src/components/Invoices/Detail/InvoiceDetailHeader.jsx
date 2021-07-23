@@ -2,10 +2,20 @@ import React from 'react'
 import {
   useParams
 } from "react-router-dom";
-const InvoiceDetailHeader = () => {
-  let {invoiceId} = useParams();
+
+const InvoiceDetailHeader = ({data}) => {
+  let { invoiceId } = useParams();
   return (
-    <h1>Cabecera del detalle del invoice {invoiceId}</h1>
+    <div>
+      <h1>Cabecera del detalle del invoice {invoiceId}</h1>
+
+      <ul>
+        <li>{data.id}</li>
+        <li>{data.client}</li>
+        <li>{data.paymentDue}</li>
+        <li>{data.total}</li>
+      </ul>
+    </div>
   )
 }
 

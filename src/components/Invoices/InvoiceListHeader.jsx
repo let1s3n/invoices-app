@@ -4,6 +4,7 @@ import { Button, DropdownButton, Dropdown } from 'react-bootstrap'
 import { IoMdAddCircle } from "react-icons/io";
 
 const InvoiceHeader = ({ data }) => {
+  console.log(data);
 
   function useWindowSize() {
 
